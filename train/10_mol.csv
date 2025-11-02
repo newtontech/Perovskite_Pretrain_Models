@@ -1,0 +1,11 @@
+SMILES,TARGET
+N#Cc1c(Cl)c(Cl)c(Cl)c(C#N)c1Cl,0.0
+N#Cc1c(O)c(Cl)c(Cl)c(C#N)c1Cl,0.0
+N#Cc1sc2sc(C#N)c(N)c2c1N,0.0
+O=C1N=c2cc3nc(O)c(O)nc3cc2=NC1=O,0.0
+ON=C(Cl)c1cc(-c2cc(C(Cl)=NO)on2)no1,0.0
+Nc1nonc1C(=O)NNC(=O)c1nonc1N,0.0
+N#Cc1c(N)sc(N)c1C#N,0.0
+O=C1NC(=O)C2(N1)NC(=O)NC2=O,0.0
+S=C1NNC(=S)NN1,0.0
+N=C(N)NC(=O)c1nc(Cl)c(N)nc1N,0.0
