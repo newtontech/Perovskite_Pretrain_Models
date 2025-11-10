@@ -11,3 +11,7 @@ huggingface_hub
 pandas
 umap-learn
 seaborn
+tensorboard
+torch_scatter
+torch_geometric
+torch_sparse

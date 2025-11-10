@@ -63,6 +63,28 @@ python draw_heatmap.py
 
 ### Baseline Methods
 
+#### MolClR
+
+You can run a finetune process of MolCLR model by
+```bash
+cd train/train_molclr
+python finetune.py
+```
+
+After that, run the data post-process script by
+
+```bash
+python collect_data.py
+```
+
+Finally, get the visualization result by following instructions specified in
+
+```bash
+draw.ipynb
+```
+
+
+
 #### DFT-Features
 
 You can run the feature heatmap visualization of DFT by
