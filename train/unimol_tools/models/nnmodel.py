@@ -118,6 +118,48 @@ class NNModel(object):
         else:
             raise ValueError('Unknown model: {}'.format(self.model_name))
         return model
+    
+    def init_random_weights(self):
+        """
+        Re-initialize all trainable model parameters with a normal distribution 
+        whose mean and standard deviation are estimated from the current parameters.
+        This ensures the new random weights have the same global first- and second-order statistics.
+        """
+        # Step 1: Collect all trainable parameters into a single flat tensor
+        trainable_params = []
+        for param in self.model.parameters():
+            if param.requires_grad:
+                trainable_params.append(param.data.detach().view(-1))
+        
+        if not trainable_params:
+            logger.warning("No trainable parameters found. Skipping re-initialization.")
+            return
+
+        all_params = torch.cat(trainable_params)
+        global_mean = all_params.mean().item()
+        global_std = all_params.std().item()
+
+        # Safety check: avoid zero std
+        if global_std == 0.0:
+            global_std = 1e-6
+            logger.warning("Global standard deviation is zero; using small epsilon (1e-6) instead.")
+
+        # Step 2: Re-initialize parameters
+        for name, param in self.model.named_parameters():
+            if not param.requires_grad:
+                continue
+            if param.ndim >= 2:
+                # Weight matrices/tensors: re-init with global normal
+                torch.nn.init.normal_(param, mean=global_mean, std=global_std)
+            else:
+                # Bias or 1D params (e.g., LayerNorm bias): init to global mean (or 0 if preferred)
+                # Here we use global_mean for consistency, but you can change to 0.0 if desired
+                torch.nn.init.constant_(param, global_mean)
+
+        logger.info(
+            f"Model weights re-initialized with global statistics: "
+            f"mean={global_mean:.6f}, std={global_std:.6f}"
+        )
 
     def collect_data(self, X, y, idx):
         """
@@ -213,7 +255,7 @@ class NNModel(object):
             os.makedirs(dir)
         joblib.dump(data, path)
 
-    def evaluate(self, trainer=None,  checkpoints_path=None,dir=None):
+    def evaluate(self, trainer=None,  checkpoints_path=None,dir=None, random_weight=False):
         """
         Evaluates the model by making predictions on the test set and averaging the results.
 
@@ -225,10 +267,11 @@ class NNModel(object):
         features_list = []
         for fold in range(self.data['kfold']):
             model_path = os.path.join(checkpoints_path, f'model_{fold}.pth')
-            self.model.load_state_dict(torch.load(
-                model_path, map_location=self.trainer.device)['model_state_dict'])
+            if not random_weight:
+                self.model.load_state_dict(torch.load(
+                    model_path, map_location=self.trainer.device)['model_state_dict'])
             _y_pred, _, __, features = trainer.predict(self.model, testdataset, self.loss_func, self.activation_fn,
-                                             self.save_path, fold, self.target_scaler, epoch=1, load_model=True,dir=dir)
+                                             self.save_path, fold, self.target_scaler, epoch=1, load_model=True,dir=dir, random_weight=random_weight)
             # print('test')
             # exit()
             features_list.append(features)

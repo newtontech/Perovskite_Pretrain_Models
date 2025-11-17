@@ -273,7 +273,7 @@ class Trainer(object):
                 is_early_stop = True
         return is_early_stop, min_loss, wait
 
-    def predict(self, model, dataset, loss_func, activation_fn, dump_dir, fold, target_scaler=None, epoch=1, load_model=False, feature_name=None,dir=None):
+    def predict(self, model, dataset, loss_func, activation_fn, dump_dir, fold, target_scaler=None, epoch=1, load_model=False, feature_name=None,dir=None, random_weight = False):
         """
         Executes the prediction on a given dataset using the specified model.
 
@@ -292,7 +292,7 @@ class Trainer(object):
                  val_loss is the validation loss, and metric_score is the calculated metric score.
         """
         model = model.to(self.device)
-        if load_model == True:
+        if load_model == True and not random_weight:
             load_model_path = os.path.join(dump_dir, f'model_{fold}.pth')
             model_dict = torch.load(load_model_path, map_location=self.device)[
                 "model_state_dict"]

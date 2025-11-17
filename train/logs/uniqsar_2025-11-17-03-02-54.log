@@ -1,0 +1,14 @@
+2025-11-17 03:02:55 | unimol_tools/weights/weighthub.py | 15 | WARNING | Uni-Mol Tools | Using custom weight directory from UNIMOL_WEIGHT_DIR: /data/yhm/software/unimol_weights/weights/
+2025-11-17 03:02:55 | unimol_tools/data/conformer.py | 126 | INFO | Uni-Mol Tools | Start generating conformers...
+2025-11-17 03:02:55 | unimol_tools/data/conformer.py | 137 | INFO | Uni-Mol Tools | Succeeded in generating conformers for 100.00% of molecules.
+2025-11-17 03:02:55 | unimol_tools/data/conformer.py | 144 | INFO | Uni-Mol Tools | Succeeded in generating 3d conformers for 100.00% of molecules.
+2025-11-17 03:02:56 | unimol_tools/models/unimol.py | 168 | INFO | Uni-Mol Tools | Loading pretrained weights from /data/yhm/software/unimol_weights/weights/mol_pre_all_h_220816.pt
+2025-11-17 03:02:57 | unimol_tools/models/nnmodel.py | 137 | INFO | Uni-Mol Tools | Model weights re-initialized with normal distribution (mean=0.0, std=0.02)
+2025-11-17 03:02:57 | unimol_tools/models/nnmodel.py | 240 | INFO | Uni-Mol Tools | start predict NNModel:unimolv1
+2025-11-17 03:02:59 | unimol_tools/tasks/trainer.py | 300 | INFO | Uni-Mol Tools | load model success!
+2025-11-17 03:03:03 | unimol_tools/tasks/trainer.py | 300 | INFO | Uni-Mol Tools | load model success!
+2025-11-17 03:03:05 | unimol_tools/tasks/trainer.py | 300 | INFO | Uni-Mol Tools | load model success!
+2025-11-17 03:03:06 | unimol_tools/tasks/trainer.py | 300 | INFO | Uni-Mol Tools | load model success!
+2025-11-17 03:03:08 | unimol_tools/tasks/trainer.py | 300 | INFO | Uni-Mol Tools | load model success!
+2025-11-17 03:03:08 | unimol_tools/predict.py | 108 | INFO | Uni-Mol Tools | final predict metrics score: 
+{'mse': 0.6805992384429214, 'mae': 0.8236519396305084, 'pearsonr': nan, 'spearmanr': nan, 'r2': 0.0}
