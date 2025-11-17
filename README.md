@@ -35,7 +35,14 @@ cd train
 python get_features.py
 ```
 
+Especially, if you want to save the features of a given set of molecules by a model with random initialized weights, do:
+
+```bash
+python get_random_features.py
+```
+
 After saving the point features to a .pt file, you can run by:
+
 ```bash
 cd visualize
 python draw_umap.py

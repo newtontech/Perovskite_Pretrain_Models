@@ -471,9 +471,19 @@ if __name__ == "__main__":
         config['dataset']['data_path'] = 'data/qm7/qm7.csv'
         target_list = ["u0_atom"]
 
+    elif config["task_name"] == 'perovskite':
+        config['dataset']['task'] = 'regression'
+        config['dataset']['data_path'] = '/data/yhm/cxy_molclr/MolCLR/data/perovskite/split_seed_40/train.csv'
+        target_list = ["TARGET"]
+
+    elif config["task_name"] == 'perovskite-new':
+        config['dataset']['task'] = 'regression'
+        config['dataset']['data_path'] = '/data/yhm/cxy_molclr/MolCLR/data/perovskite-new/split_seed_40/train.csv'
+        target_list = ["TARGET"]
+
     elif config["task_name"] == 'perovskite-resplit':
         config['dataset']['task'] = 'regression'
-        config['dataset']['data_path'] = 'data/perovskite-resplit/split_seed_0/train.csv'
+        config['dataset']['data_path'] = '/data/yhm/cxy_molclr/MolCLR/data/perovskite-resplit/split_seed_4/train.csv'
         target_list = ["TARGET"]
 
     elif config["task_name"] == 'qm8':

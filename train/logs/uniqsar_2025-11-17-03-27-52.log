@@ -1,0 +1,9 @@
+2025-11-17 03:27:53 | unimol_tools/weights/weighthub.py | 15 | WARNING | Uni-Mol Tools | Using custom weight directory from UNIMOL_WEIGHT_DIR: /data/yhm/software/unimol_weights/weights/
+2025-11-17 03:27:54 | unimol_tools/data/conformer.py | 126 | INFO | Uni-Mol Tools | Start generating conformers...
+2025-11-17 03:27:54 | unimol_tools/data/conformer.py | 137 | INFO | Uni-Mol Tools | Succeeded in generating conformers for 100.00% of molecules.
+2025-11-17 03:27:54 | unimol_tools/data/conformer.py | 144 | INFO | Uni-Mol Tools | Succeeded in generating 3d conformers for 100.00% of molecules.
+2025-11-17 03:27:54 | unimol_tools/models/unimol.py | 168 | INFO | Uni-Mol Tools | Loading pretrained weights from /data/yhm/software/unimol_weights/weights/mol_pre_all_h_220816.pt
+2025-11-17 03:27:56 | unimol_tools/models/nnmodel.py | 159 | INFO | Uni-Mol Tools | Model weights re-initialized with global statistics: mean=0.000291, std=0.042659
+2025-11-17 03:27:56 | unimol_tools/models/nnmodel.py | 265 | INFO | Uni-Mol Tools | start predict NNModel:unimolv1
+2025-11-17 03:27:57 | unimol_tools/predict.py | 108 | INFO | Uni-Mol Tools | final predict metrics score: 
+{'mse': 1.6984653021636072e-06, 'mae': 0.001303250144701451, 'pearsonr': nan, 'spearmanr': nan, 'r2': 0.0}
