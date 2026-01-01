@@ -12,7 +12,7 @@ git clone https://github.com/newtontech/Perovskite_Pretrain_Models.git
 # create virtual env
 conda create -n aifp python==3.11
 conda activate aifp
-pip install -r requirements.txt
+pip install -r requirements.txtgit reset --hard origin/main
 ```
 
 ### Training

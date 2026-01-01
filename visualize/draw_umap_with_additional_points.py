@@ -22,9 +22,9 @@ plt.rcParams.update({
     'figure.figsize': (5, 4.5)
 })
 
-path = '../train/trainset_points_features_trained_model.pt'
+path = '../train/trainset_points_random_features_trained_model.pt'
 data_dir = '../train/train.csv'
-path_2 = '../train/addition_points_features_trained_model.pt'
+path_2 = '../train/addition_points_random_features_trained_model.pt'
 data_dir_2 = '../train/10_mol.csv'
 
 df = pd.read_csv(data_dir)
@@ -71,5 +71,5 @@ plt.title('Finetuned UMAP visualization')
 plt.xlabel('UMAP dimension 1')
 plt.ylabel('UMAP dimension 2')
 
-plt.savefig('umap_addition.png', dpi=300, bbox_inches='tight')
+plt.savefig('umap_addition_r.png', dpi=300, bbox_inches='tight')
 plt.show()

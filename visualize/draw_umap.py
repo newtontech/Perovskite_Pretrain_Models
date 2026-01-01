@@ -22,7 +22,7 @@ plt.rcParams.update({
     'figure.figsize': (5, 4.5)
 })
 
-path = '../train/trainset_points_features_origin_model.pt'
+path = '../train/trainset_points_random_features_trained_model.pt'
 data_dir = '../train/train.csv'
 
 df = pd.read_csv(data_dir)
@@ -44,7 +44,7 @@ scatter = plt.scatter(
     embeddings[:, 0], 
     embeddings[:, 1], 
     c=targets,
-    cmap='coolwarm',
+    cmap='viridis',
     s=30,
     edgecolors='none',
 )
@@ -53,9 +53,9 @@ cbar = plt.colorbar(scatter)
 cbar.set_label('Target value', rotation=270, labelpad=15)
 plt.legend(loc='upper right')
 
-plt.title('Pretrained UMAP visualization')
+plt.title('Random UMAP visualization')
 plt.xlabel('UMAP dimension 1')
 plt.ylabel('UMAP dimension 2')
 
-plt.savefig('umap.png', dpi=300, bbox_inches='tight')
+plt.savefig('umap_r.png', dpi=300, bbox_inches='tight')
 plt.show()
