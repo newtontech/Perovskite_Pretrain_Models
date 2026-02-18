@@ -158,21 +158,6 @@ python draw_best_results.py     # Visualize
 
 ---
 
-## 🔬 Citation
-
-If you find this work useful, please consider citing:
-
-```bibtex
-@software{perovskite_pretrain_models,
-  title = {AI for Perovskite Solar Cells},
-  author = {NewtonTech Team},
-  year = {2025},
-  url = {https://github.com/newtontech/Perovskite_Pretrain_Models}
-}
-```
-
----
-
 ## 📝 Requirements
 
 - Python 3.11+
