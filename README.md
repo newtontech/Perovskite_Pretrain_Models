@@ -1,133 +1,216 @@
-# AI for Perovskite Solar Cells
+# 🌞 AI for Perovskite Solar Cells
 
+[![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## Quick Start
+> **Accelerating Perovskite Solar Cell Discovery with Pre-trained Molecular Representation Learning**
 
-### Easy Installation
+This repository implements state-of-the-art deep learning models for predicting perovskite solar cell properties, combining **pre-trained molecular representations** with **domain-specific fine-tuning**.
+
+---
+
+## ✨ Highlights
+
+- **🤖 Multiple Pre-trained Models**: Uni-Mol, MolCLR, and more for molecular representation learning
+- **📊 Comprehensive Baselines**: DFT features, KRFP fingerprints with ML baselines (XGBoost, Random Forest, SVR)
+- **🎨 Rich Visualization Tools**: UMAP embeddings, attention heatmaps, and correlation analysis
+- **🔬 Domain-Specific**: Tailored for perovskite material property prediction
+
+---
+
+## 🚀 Quick Start
+
+### Installation
 
 ```bash
-# clone the repository
+# Clone the repository
 git clone https://github.com/newtontech/Perovskite_Pretrain_Models.git
+cd Perovskite_Pretrain_Models
 
-# create virtual env
-conda create -n aifp python==3.11
+# Create conda environment
+conda create -n aifp python=3.11 -y
 conda activate aifp
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### Training
+### Training Your First Model
 
-#### Uni-Mol Training
-
-You can run a quick training script from pretrained Uni-Mol model by:
 ```bash
 cd train
 python run.py
 ```
 
+---
+
+## 📁 Project Structure
+
+```
+Perovskite_Pretrain_Models/
+├── train/                          # Main training scripts
+│   ├── run.py                      # Uni-Mol training entry point
+│   ├── get_features.py             # Feature extraction
+│   ├── get_heatmap.py              # Attention heatmap generation
+│   └── train_molclr/               # MolCLR fine-tuning
+├── baselines/                      # Baseline methods
+│   ├── baseline_search_get.py      # Hyperparameter search
+│   ├── feature_selection_cluster.py
+│   └── data_krfp/                  # KRFP feature generation
+├── visualize/                      # Visualization tools
+│   ├── draw_umap.py                # UMAP visualization
+│   ├── draw_heatmap.py             # Heatmap rendering
+│   └── draw_correlation.py         # Feature correlation
+└── rdkit_dft_features_generation/  # DFT feature extraction
+```
+
+---
+
+## 🎯 Features
+
+### Model Training
+
+#### Uni-Mol Fine-tuning
+State-of-the-art 3D molecular representation learning pretrained on large-scale molecular datasets.
+
+```bash
+cd train
+python run.py
+```
+
+#### MolCLR Fine-tuning
+Contrastive learning framework for molecular representations.
+
+```bash
+cd train/train_molclr
+python finetune.py
+python collect_data.py
+# View results in draw.ipynb
+```
+
 ### Visualization
 
-#### Features Visualization
+#### UMAP Embedding Visualization
+Visualize high-dimensional molecular features in 2D space.
 
-First, you can save the features of a given set of molecules by:
 ```bash
 cd train
-python get_features.py
+python get_features.py          # Save features
+cd ../visualize
+python draw_umap.py             # Basic UMAP
+python draw_umap_with_additional_points.py  # Highlight specific molecules
 ```
 
-After saving the point features to a .pt file, you can run by:
-```bash
-cd visualize
-python draw_umap.py
-```
+#### Attention Heatmaps
+Understand which atoms the model focuses on for predictions.
 
-If you have two sets of features and want to highlight one of them, run by:
-```bash
-cd visualize
-python draw_umap_with_additional_points.py
-```
-
-#### Heatmap Visualization
-
-First, you can save the heatmap and atom list of a given molecule by:
 ```bash
 cd train
-python get_heatmap.py
-```
-
-After that, run:
-```bash
-cd visualize
-python draw_heatmap.py
+python get_heatmap.py           # Generate heatmap data
+cd ../visualize
+python draw_heatmap.py          # Render visualization
 ```
 
 ### Baseline Methods
 
-#### MolClR
+#### DFT + ML Models
+Traditional machine learning with Density Functional Theory features.
 
-You can run a finetune process of MolCLR model by
-```bash
-cd train/train_molclr
-python finetune.py
-```
-
-After that, run the data post-process script by
-
-```bash
-python collect_data.py
-```
-
-Finally, get the visualization result by following instructions specified in
-
-```bash
-draw.ipynb
-```
-
-
-
-#### DFT-Features
-
-You can run the feature heatmap visualization of DFT by
 ```bash
 cd baselines
+
+# Feature correlation analysis
 python draw_correlation.py
-```
 
-, and run the feature selection process by
-```bash
+# Feature selection
 python feature_selection_cluster.py
-```
 
-Run the baseline models of DFT with a random search of hyperparams by
-```bash
+# Train & evaluate baselines
 python baseline_search_get.py
-```
 
-After that,all the prediction results are saved at \predictions
-
-You can get the visualization result of the best performance model by running
-```bash
+# Visualize best results
 python draw_best_results.py
 ```
-And the corresponding images are saved in /scatter_img
 
-#### KRFP Features
+#### KRFP Fingerprints
+Kernel-based molecular fingerprints with ML baselines.
 
-Run the data generation pipeline by
 ```bash
-cd data_krfp
-python generate_krfp.py
-```
-And the data is saved to /data folder
+cd baselines/data_krfp
+python generate_krfp.py         # Generate KRFP features
 
-After that, run the baseline models of KRFP-features with a random search of hyperparams by
-```bash
-python baseline_search_get.py
+cd ..
+python baseline_search_get.py   # Train models
+python draw_best_results.py     # Visualize
 ```
 
-After that,all the prediction results are saved at \predictions_krfp
-You can get the visualization result of the best performance model by running
-```bash
-python draw_best_results.py
+---
+
+## 📊 Results
+
+| Model | Features | Test RMSE | Validation R² |
+|-------|----------|-----------|---------------|
+| Uni-Mol | 3D Structure | - | - |
+| MolCLR | Graph | - | - |
+| XGBoost | DFT | - | - |
+| Random Forest | KRFP | - | - |
+
+---
+
+## 🔬 Citation
+
+If you find this work useful, please consider citing:
+
+```bibtex
+@software{perovskite_pretrain_models,
+  title = {AI for Perovskite Solar Cells},
+  author = {NewtonTech Team},
+  year = {2025},
+  url = {https://github.com/newtontech/Perovskite_Pretrain_Models}
+}
 ```
-And the corresponding images are saved in /scatter_img_krfp
+
+---
+
+## 📝 Requirements
+
+- Python 3.11+
+- PyTorch 2.0+
+- RDKit
+- scikit-learn
+- pandas, numpy
+- matplotlib, seaborn
+- umap-learn
+
+See `requirements.txt` for complete dependencies.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- Uni-Mol team for the pretrained model
+- MolCLR framework authors
+- The perovskite research community
+
+---
+
+<div align="center">
+
+**Made with ❤️ for Accelerating Materials Discovery**
+
+[⭐ Star this repo](https://github.com/newtontech/Perovskite_Pretrain_Models) • [🐛 Report Issues](https://github.com/newtontech/Perovskite_Pretrain_Models/issues) • [💡 Feature Requests](https://github.com/newtontech/Perovskite_Pretrain_Models/issues)
+
+</div>
