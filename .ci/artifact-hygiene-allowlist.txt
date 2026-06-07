@@ -1,0 +1,11 @@
+# Existing tracked generated artifacts. Keep this list shrinking over time.
+train/train_molclr/ckpt/pretrained_gcn/checkpoints/model.pth
+train/train_molclr/ckpt/pretrained_gin/checkpoints/model.pth
+train/train_molclr/dataset/__pycache__/dataset.cpython-311.pyc
+train/train_molclr/dataset/__pycache__/dataset_test.cpython-310.pyc
+train/train_molclr/dataset/__pycache__/dataset_test.cpython-311.pyc
+train/train_molclr/models/__pycache__/gcn_finetune.cpython-310.pyc
+train/train_molclr/models/__pycache__/gcn_finetune.cpython-311.pyc
+train/train_molclr/models/__pycache__/ginet_finetune.cpython-311.pyc
+train/train_molclr/models/__pycache__/ginet_molclr.cpython-311.pyc
+train/train_molclr/utils/__pycache__/nt_xent.cpython-311.pyc

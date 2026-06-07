@@ -66,6 +66,17 @@ python run.py
 
 If a full dataset or pretrained checkpoint is unavailable locally, treat this as a smoke test and document the missing artifact in the experiment notes.
 
+### CI Smoke Checks
+
+GitHub Actions runs a lightweight smoke suite that does not install ML dependencies, download datasets, or fetch model weights:
+
+```bash
+python -m pip install pytest
+pytest -q
+```
+
+The checks compile Python sources without importing heavy modules and prevent new tracked generated artifacts under `__pycache__/`, `logs/`, or `checkpoints/`.
+
 ### Data and Model Artifacts
 
 - Public datasets: cite the paper, database, DOI, or upstream repository in the experiment notes.
