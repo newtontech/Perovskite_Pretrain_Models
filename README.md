@@ -43,6 +43,36 @@ cd train
 python run.py
 ```
 
+## Reproducibility Checklist
+
+Use this as the public path for reproducing results from the repository:
+
+1. Create the Python 3.11 environment and install `requirements.txt`.
+2. Record the dataset source, target property, train/validation/test split, random seed, and metric definition before each run.
+3. Run baseline feature generation before comparing pretrained models against DFT or KRFP baselines.
+4. Save generated metrics and figures beside the run output, then update the README result table only from reviewed artifacts.
+5. Keep private datasets and large pretrained weights outside Git; publish checksums and download instructions when an artifact can be shared.
+
+### Minimal Demo Path
+
+```bash
+conda create -n perovskite-pretrain python=3.11 -y
+conda activate perovskite-pretrain
+pip install -r requirements.txt
+
+cd train
+python run.py
+```
+
+If a full dataset or pretrained checkpoint is unavailable locally, treat this as a smoke test and document the missing artifact in the experiment notes.
+
+### Data and Model Artifacts
+
+- Public datasets: cite the paper, database, DOI, or upstream repository in the experiment notes.
+- Private datasets: store outside this repository and keep only schema, feature definitions, and anonymized examples here.
+- Pretrained weights: store in release assets, object storage, or an institutional data repository before linking from the README.
+- Generated outputs: keep final plots and metrics under a dated run folder; copy only publication-ready figures into `visualize/` or docs.
+
 ---
 
 ## 📁 Project Structure
@@ -155,6 +185,21 @@ python draw_best_results.py     # Visualize
 | MolCLR | Graph | - | - |
 | XGBoost | DFT | - | - |
 | Random Forest | KRFP | - | - |
+
+Update this table only from a completed run that includes environment, data source, split, seed, and output artifacts.
+
+## Citation
+
+If this repository helps your research, cite the associated perovskite pretraining work and the upstream model frameworks used in your experiment.
+
+```bibtex
+@software{perovskite_pretrain_models,
+  title = {AI for Perovskite Solar Cells: Pretrained Molecular Representation Models},
+  author = {Yan, Haoming and contributors},
+  year = {2026},
+  url = {https://github.com/newtontech/Perovskite_Pretrain_Models}
+}
+```
 
 ---
 
