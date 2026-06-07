@@ -26,6 +26,39 @@
     "fp16": true
   },
   "comparison": {
+    "shared_split": "same rows and split seeds as property_prediction_multitask",
+    "runs": [
+      {
+        "name": "random_weight_unimol_features",
+        "training_mode": "random initialization control",
+        "downstream_protocol": "extract embeddings once, train identical deterministic/tabular regressor on issue #5 splits",
+        "artifact_policy": "store feature tensors and checkpoints outside git with checksum references only"
+      },
+      {
+        "name": "frozen_chemberta2_embeddings",
+        "training_mode": "frozen pretrained ChemBERTa2 encoder",
+        "downstream_protocol": "fit the same regression head and metrics as Uni-Mol/MolCLR on identical rows",
+        "artifact_policy": "commit config, metric table, dataset manifest, and external artifact URI/checksum"
+      },
+      {
+        "name": "finetuned_chemberta2_regression_head",
+        "training_mode": "ChemBERTa2 fine-tuning for downstream regression",
+        "downstream_protocol": "report MAE/RMSE/R2 per split seed with mean and standard deviation",
+        "artifact_policy": "keep weights, optimizer state, and trainer logs out of git"
+      },
+      {
+        "name": "unimol_finetune",
+        "training_mode": "existing Uni-Mol fine-tuning workflow",
+        "downstream_protocol": "use the same target columns, split seeds, and metric definitions",
+        "artifact_policy": "reference checkpoints externally; commit only reviewed summaries"
+      },
+      {
+        "name": "molclr_finetune",
+        "training_mode": "existing MolCLR fine-tuning workflow",
+        "downstream_protocol": "use the same target columns, split seeds, and metric definitions",
+        "artifact_policy": "reference checkpoints externally; commit only reviewed summaries"
+      }
+    ],
     "baselines": [
       "random_weight_unimol_features",
       "frozen_chemberta2_embeddings",

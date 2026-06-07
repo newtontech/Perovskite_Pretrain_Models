@@ -14,6 +14,8 @@ ChemBERTa2 experiments should be recorded as masked-language-modeling pretrainin
 
 Config stub: `configs/pretraining/chemberta2_mlm.json`.
 
+The config now includes a comparison matrix for random-weight Uni-Mol, frozen ChemBERTa2 embeddings, fine-tuned ChemBERTa2, Uni-Mol fine-tuning, and MolCLR fine-tuning. All runs must use the same downstream rows, split seeds, metrics, and artifact policy before their numbers are compared.
+
 Example command shape:
 
 ```bash
@@ -33,6 +35,8 @@ The exact command may differ by the installed `transformers` version; preserve t
 The first supported property task is the existing `TARGET` residual for delta PCE in `train/train.csv`. Bandgap and stability are defined as schema stubs until public or private columns are added.
 
 Config stub: `configs/pretraining/property_prediction_multitask.json`.
+
+Lightweight scaffold: `perovskite_pretrain.property_prediction` provides dependency-free CSV loading, deterministic SMILES features, a k-nearest-neighbor regressor, and simple feature-importance scores. This is for smoke tests, candidate screening, and schema validation only; it does not satisfy the trained MAE thresholds without calibrated data and model training.
 
 Recommended evaluation sequence:
 
@@ -64,6 +68,8 @@ Generation work should start as a screened candidate pipeline before training la
 6. Commit only reviewed candidate schemas, small top-k tables, and configs.
 
 Config stub: `configs/pretraining/molecule_generation_vae.json`.
+
+Lightweight scaffold: `perovskite_pretrain.generation` provides deterministic substituent-based candidate generation plus validity, novelty, duplicate, filter-note, and predictor-score evaluation. It is a generation/evaluation skeleton for issue #6, not a trained VAE, RL optimizer, or synthetic-accessibility model.
 
 Acceptance metrics should be reported only when the predictor is calibrated for the target property. Until then, record validity, novelty, duplicate rate, and filter reasons.
 
