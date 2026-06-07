@@ -52,6 +52,12 @@
       3,
       4
     ],
+    "lightweight_report": {
+      "module": "perovskite_pretrain.property_prediction",
+      "entrypoint": "leave_one_out_benchmark",
+      "output_schema": "write_benchmark_report JSON",
+      "purpose": "CI-safe smoke benchmark and report contract before calibrated model training"
+    },
     "report": [
       "mean_metric",
       "std_metric",

@@ -38,6 +38,14 @@ Config stub: `configs/pretraining/property_prediction_multitask.json`.
 
 Lightweight scaffold: `perovskite_pretrain.property_prediction` provides dependency-free CSV loading, deterministic SMILES features, a k-nearest-neighbor regressor, and simple feature-importance scores. This is for smoke tests, candidate screening, and schema validation only; it does not satisfy the trained MAE thresholds without calibrated data and model training.
 
+The same module now also defines a CI-safe benchmark/report contract:
+
+- `regression_metrics(actual, predicted)` computes MAE, RMSE, and R2 without extra dependencies.
+- `leave_one_out_benchmark(rows, acceptance_mae=...)` evaluates each labeled property with deterministic leave-one-out splits.
+- `write_benchmark_report(path, benchmarks, dataset_manifest=...)` writes a JSON report that can be archived with dataset source, license, split, and artifact metadata.
+
+Use the lightweight report to validate data wiring before training large models. Treat an acceptance flag as publication evidence only when the dataset manifest points to the real benchmark rows and the calibrated model configuration used for the reported run.
+
 Recommended evaluation sequence:
 
 1. Run DFT/KRFP baselines with the same split seeds.
@@ -55,6 +63,17 @@ Required report fields:
 | feature_set | DFT, KRFP, Uni-Mol, MolCLR, ChemBERTa2, or random-weight control. |
 | metric | MAE/RMSE/R2 with target units. |
 | artifact | Local path or external URI plus checksum for weights and outputs. |
+
+Minimum JSON report fields:
+
+| Field | Purpose |
+| --- | --- |
+| dataset_manifest.source | Dataset or benchmark source. |
+| dataset_manifest.license | Data license or access note. |
+| benchmarks.*.metrics.mae | Target-unit MAE for the evaluated split. |
+| benchmarks.*.acceptance_mae | Issue-defined target threshold, if available. |
+| benchmarks.*.acceptance_passed | Whether the reported MAE satisfies that threshold. |
+| benchmarks.*.top_features | Feature-importance smoke output for interpretability review. |
 
 ## Issue #6: Perovskite Molecular Generation
 
