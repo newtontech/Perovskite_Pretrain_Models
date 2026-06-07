@@ -1,0 +1,59 @@
+{
+  "workflow": "perovskite_molecule_generation",
+  "issue": 6,
+  "data": {
+    "seed_molecules_file": "train/10_mol.csv",
+    "smiles_column": "SMILES",
+    "candidate_output_schema": [
+      "smiles",
+      "source_seed_smiles",
+      "generation_method",
+      "valid_rdkit",
+      "novel_vs_training",
+      "predicted_delta_pce",
+      "predicted_stability",
+      "filter_notes"
+    ]
+  },
+  "model": {
+    "type": "vae",
+    "latent_dim": 128,
+    "encoder": "smiles_or_graph_encoder",
+    "decoder": "smiles_decoder",
+    "condition_fields": [
+      "target_delta_pce",
+      "target_stability"
+    ]
+  },
+  "screening": {
+    "validity_checks": [
+      "rdkit_parseable",
+      "canonical_smiles_unique",
+      "not_in_training_set",
+      "allowed_atoms_only",
+      "basic_synthetic_accessibility"
+    ],
+    "ranking": [
+      "predicted_delta_pce_desc",
+      "predicted_stability_desc",
+      "novelty_desc"
+    ],
+    "acceptance_targets": {
+      "valid_fraction": ">= 0.80",
+      "top10_predicted_pce": "> 25% for at least one candidate when calibrated PCE model is available"
+    }
+  },
+  "artifacts": {
+    "keep_out_of_git": [
+      "generated_candidates_full.csv",
+      "vae_checkpoints/",
+      "rl_rollouts/"
+    ],
+    "publishable": [
+      "candidate_schema",
+      "top_candidates_reviewed.csv",
+      "model_config",
+      "filter_summary"
+    ]
+  }
+}

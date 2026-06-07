@@ -17,11 +17,13 @@ from .utils import logger
 
 class MolPredict(object):
     """A :class:`MolPredict` class is responsible for interface of predicting process of molecular data."""
-    def __init__(self, load_model=None, save_heatmap=False):
+    def __init__(self, load_model=None, save_heatmap=False, random_weight=False, random_seed=None):
         """ 
         Initialize a :class:`MolPredict` class.
 
         :param load_model: str, default=None, path of model to load.
+        :param random_weight: bool, default=False, replace learned weights with random weights.
+        :param random_seed: int, default=None, seed used when random_weight is enabled.
         """
         if not load_model:
             raise ValueError("load_model is empty")
@@ -32,6 +34,8 @@ class MolPredict(object):
         self.task = self.config.task
         self.target_cols = self.config.target_cols
         self.save_heatmap = save_heatmap
+        self.random_weight = random_weight
+        self.random_seed = random_seed
 
     def predict(self, data, save_path=None, metrics='none'):
         """ 
@@ -76,7 +80,14 @@ class MolPredict(object):
 
         self.trainer = Trainer(save_path=self.load_model, **self.config)
         self.model = NNModel(self.datahub.data, self.trainer, **self.config)
-        features = self.model.evaluate(self.trainer, self.load_model,dir=save_dir)
+        if self.random_weight:
+            self.model.init_random_weights(seed=self.random_seed)
+        features = self.model.evaluate(
+            self.trainer,
+            self.load_model,
+            dir=save_dir,
+            random_weight=self.random_weight,
+        )
 
         y_pred = self.model.cv['test_pred']
         scalar = self.datahub.data['target_scaler']

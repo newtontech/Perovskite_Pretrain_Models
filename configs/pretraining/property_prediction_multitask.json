@@ -1,0 +1,69 @@
+{
+  "workflow": "perovskite_property_prediction",
+  "issue": 5,
+  "data": {
+    "train_file": "train/train.csv",
+    "test_file": "train/test.csv",
+    "smiles_column": "SMILES",
+    "task_type": "multitask_regression",
+    "targets": [
+      {
+        "name": "delta_pce",
+        "column": "TARGET",
+        "unit": "percentage_point_residual",
+        "metric": "mae",
+        "acceptance_target": "< 2.0 percentage points"
+      },
+      {
+        "name": "bandgap",
+        "column": "BANDGAP_EV",
+        "unit": "eV",
+        "metric": "mae",
+        "acceptance_target": "< 0.1 eV",
+        "status": "schema_stub"
+      },
+      {
+        "name": "stability_t80",
+        "column": "T80_HOURS",
+        "unit": "hours",
+        "metric": "mae",
+        "acceptance_target": "dataset_defined",
+        "status": "schema_stub"
+      }
+    ]
+  },
+  "model": {
+    "encoder": "pretrained_molecular_encoder",
+    "shared_hidden_dims": [
+      512,
+      256
+    ],
+    "heads": {
+      "delta_pce": "linear_regression",
+      "bandgap": "linear_regression",
+      "stability_t80": "linear_regression"
+    }
+  },
+  "evaluation": {
+    "splits": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "report": [
+      "mean_metric",
+      "std_metric",
+      "seed",
+      "dataset_manifest",
+      "feature_set",
+      "checkpoint_checksum"
+    ],
+    "interpretability": [
+      "feature_importance_for_tabular_baselines",
+      "attention_heatmap_for_unimol",
+      "embedding_umap"
+    ]
+  }
+}

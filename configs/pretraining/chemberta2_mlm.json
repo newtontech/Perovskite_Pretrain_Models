@@ -1,0 +1,58 @@
+{
+  "workflow": "chemberta2_masked_language_modeling",
+  "issue": 3,
+  "model": {
+    "base_checkpoint": "DeepChem/ChemBERTa-77M-MLM",
+    "tokenizer": "matching_checkpoint_tokenizer",
+    "objective": "masked_language_modeling",
+    "mlm_probability": 0.15
+  },
+  "data": {
+    "train_file": "data/chemberta2/train_smiles.txt",
+    "validation_file": "data/chemberta2/validation_smiles.txt",
+    "format": "one canonical SMILES string per line",
+    "required_columns": []
+  },
+  "training": {
+    "seed": 42,
+    "max_seq_length": 256,
+    "per_device_train_batch_size": 32,
+    "per_device_eval_batch_size": 32,
+    "learning_rate": 5e-5,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.06,
+    "num_train_epochs": 10,
+    "gradient_accumulation_steps": 1,
+    "fp16": true
+  },
+  "comparison": {
+    "baselines": [
+      "random_weight_unimol_features",
+      "frozen_chemberta2_embeddings",
+      "finetuned_chemberta2_regression_head",
+      "unimol_finetune",
+      "molclr_finetune"
+    ],
+    "metrics": [
+      "validation_loss",
+      "perplexity",
+      "downstream_mae",
+      "downstream_rmse",
+      "downstream_r2"
+    ]
+  },
+  "artifacts": {
+    "keep_out_of_git": [
+      "checkpoints/",
+      "logs/",
+      "*.bin",
+      "*.safetensors"
+    ],
+    "publishable": [
+      "config",
+      "dataset_manifest",
+      "metric_table",
+      "checkpoint_checksum"
+    ]
+  }
+}

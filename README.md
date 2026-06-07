@@ -84,6 +84,15 @@ The checks compile Python sources without importing heavy modules and prevent ne
 - Pretrained weights: store in release assets, object storage, or an institutional data repository before linking from the README.
 - Generated outputs: keep final plots and metrics under a dated run folder; copy only publication-ready figures into `visualize/` or docs.
 
+### Pretraining Workflow Stubs
+
+Open pretraining requests are tracked as lightweight, reproducible workflow stubs rather than committed model artifacts:
+
+- ChemBERTa2 training details: `docs/pretraining_workflows.md` and `configs/pretraining/chemberta2_mlm.json`
+- Property prediction: `configs/pretraining/property_prediction_multitask.json`
+- Molecular generation: `configs/pretraining/molecule_generation_vae.json`
+- Random-weight Uni-Mol control: `examples/extract_unimol_features.py`
+
 ---
 
 ## 📁 Project Structure

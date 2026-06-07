@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 import subprocess
 
 
@@ -7,6 +8,8 @@ ALLOWLIST_PATH = REPO_ROOT / ".ci" / "artifact-hygiene-allowlist.txt"
 IGNORED_DIRS = {".git", ".pytest_cache"}
 ARTIFACT_DIR_NAMES = {"__pycache__", "logs", "checkpoints"}
 ARTIFACT_SUFFIXES = {".pyc", ".pyo"}
+WORKFLOW_CONFIG_DIR = REPO_ROOT / "configs" / "pretraining"
+WORKFLOW_DOC = REPO_ROOT / "docs" / "pretraining_workflows.md"
 
 
 def project_python_files():
@@ -64,3 +67,34 @@ def test_no_new_generated_artifacts_are_tracked():
 
     assert not unexpected, "New tracked generated artifacts are not allowed:\n" + "\n".join(unexpected)
     assert not stale, "Remove stale entries from .ci/artifact-hygiene-allowlist.txt:\n" + "\n".join(stale)
+
+
+def test_pretraining_workflow_configs_are_parseable_and_issue_linked():
+    expected = {
+        "chemberta2_mlm.json": 3,
+        "property_prediction_multitask.json": 5,
+        "molecule_generation_vae.json": 6,
+    }
+
+    for file_name, issue_number in expected.items():
+        config_path = WORKFLOW_CONFIG_DIR / file_name
+        config = json.loads(config_path.read_text(encoding="utf-8"))
+        assert config["issue"] == issue_number
+        assert config["workflow"]
+        assert "data" in config
+
+
+def test_pretraining_workflow_docs_cover_open_issue_workflows():
+    body = WORKFLOW_DOC.read_text(encoding="utf-8").lower()
+    required_markers = [
+        "issue #3",
+        "issue #5",
+        "issue #6",
+        "chemberta2",
+        "property prediction",
+        "molecular generation",
+        "random-weight",
+    ]
+
+    missing = [marker for marker in required_markers if marker not in body]
+    assert not missing, "Workflow documentation is missing markers: " + ", ".join(missing)

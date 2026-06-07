@@ -119,6 +119,28 @@ class NNModel(object):
             raise ValueError('Unknown model: {}'.format(self.model_name))
         return model
 
+    def init_random_weights(self, seed=None):
+        """
+        Re-initialize trainable submodules for random-weight control experiments.
+
+        This keeps the model architecture and prediction path unchanged while
+        removing learned checkpoint/pretraining signal from the weights.
+        """
+        if seed is not None:
+            torch.manual_seed(seed)
+
+        reset_count = 0
+        for module in self.model.modules():
+            reset_parameters = getattr(module, 'reset_parameters', None)
+            if callable(reset_parameters):
+                reset_parameters()
+                reset_count += 1
+
+        if reset_count == 0:
+            logger.warning("No resettable modules found for random-weight initialization.")
+        else:
+            logger.info("Random-weight initialization reset %s modules.", reset_count)
+
     def collect_data(self, X, y, idx):
         """
         Collects and formats the training or validation data.
@@ -213,7 +235,7 @@ class NNModel(object):
             os.makedirs(dir)
         joblib.dump(data, path)
 
-    def evaluate(self, trainer=None,  checkpoints_path=None,dir=None):
+    def evaluate(self, trainer=None,  checkpoints_path=None,dir=None, random_weight=False):
         """
         Evaluates the model by making predictions on the test set and averaging the results.
 
@@ -224,11 +246,12 @@ class NNModel(object):
         testdataset = NNDataset(self.features, np.asarray(self.data['target']))
         features_list = []
         for fold in range(self.data['kfold']):
-            model_path = os.path.join(checkpoints_path, f'model_{fold}.pth')
-            self.model.load_state_dict(torch.load(
-                model_path, map_location=self.trainer.device)['model_state_dict'])
+            if not random_weight:
+                model_path = os.path.join(checkpoints_path, f'model_{fold}.pth')
+                self.model.load_state_dict(torch.load(
+                    model_path, map_location=self.trainer.device)['model_state_dict'])
             _y_pred, _, __, features = trainer.predict(self.model, testdataset, self.loss_func, self.activation_fn,
-                                             self.save_path, fold, self.target_scaler, epoch=1, load_model=True,dir=dir)
+                                             self.save_path, fold, self.target_scaler, epoch=1, load_model=not random_weight,dir=dir)
             # print('test')
             # exit()
             features_list.append(features)
