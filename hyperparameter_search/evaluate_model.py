@@ -3,7 +3,7 @@
 Model Evaluation Utilities
 ==========================
 
-This script provides utilities for evaluating trained UniMol models
+This script provides utilities for evaluating trained Uni-Mol models
 and generating comparison reports.
 """
 
@@ -17,7 +17,7 @@ import seaborn as sns
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 from scipy.stats import pearsonr, spearmanr
 
-# Set UniMol weights directory
+# Set Uni-Mol weights directory
 os.environ['UNIMOL_WEIGHT_DIR'] = os.environ.get(
     'UNIMOL_WEIGHT_DIR',
     os.path.expanduser('~/.local/lib/python3.10/site-packages/unimol_tools/weights')
@@ -198,7 +198,7 @@ def compare_models(model_results, output_path='./model_comparison.png'):
 
 def main():
     """Main function for command-line usage."""
-    parser = argparse.ArgumentParser(description='Evaluate UniMol model')
+    parser = argparse.ArgumentParser(description='Evaluate Uni-Mol model')
     parser.add_argument('--model_path', type=str, required=True,
                         help='Path to trained model')
     parser.add_argument('--test_csv', type=str, required=True,

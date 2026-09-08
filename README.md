@@ -12,7 +12,7 @@ This repository implements state-of-the-art deep learning models for predicting 
 
 ## ✨ Highlights
 
-- **🤖 Multiple Pre-trained Models**: Uni-Mol, MolCLR, and more for molecular representation learning
+- **🤖 Multiple Pre-trained Models**: Uni-Mol, MolCLR, and ChemBERTa-2 for molecular representation learning
 - **📊 Comprehensive Baselines**: DFT features, KRFP fingerprints with ML baselines (XGBoost, Random Forest, SVR)
 - **🎨 Rich Visualization Tools**: UMAP embeddings, attention heatmaps, and correlation analysis
 - **🔬 Domain-Specific**: Tailored for perovskite material property prediction
@@ -44,6 +44,10 @@ Configure the pretrained weight directory and available CUDA device in `training
 cd training
 python run.py
 ```
+
+## Dataset
+
+The **[unsplit experimental dataset](data/experimental_records.csv)** contains **343 experimental records** and **303 distinct SMILES strings**, including literature references, initial PCE, final PCE, and PCE improvement. See the [data dictionary and source description](data/README.md). The five archived outer splits are in [`baselines/datasets/`](baselines/datasets/).
 
 ## Reproducibility Checklist
 
@@ -92,7 +96,7 @@ The checks compile Python sources without importing heavy modules and prevent ne
 
 Open pretraining requests are tracked as lightweight, reproducible workflow stubs rather than committed model artifacts:
 
-- ChemBERTa2 training details: `docs/pretraining_workflows.md` and `configs/pretraining/chemberta2_mlm.json`
+- ChemBERTa-2 training details: `docs/pretraining_workflows.md` and `configs/pretraining/chemberta2_mlm.json`
 - Property prediction: `configs/pretraining/property_prediction_multitask.json`
 - Molecular generation: `configs/pretraining/molecule_generation_vae.json`
 - Random-weight Uni-Mol control: `examples/extract_unimol_features.py`

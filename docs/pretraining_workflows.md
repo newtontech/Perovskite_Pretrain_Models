@@ -2,19 +2,19 @@
 
 This document turns issues #3, #5, and #6 into reproducible first-pass workflows without adding large datasets, checkpoints, logs, or generated figures to Git.
 
-## Issue #3: ChemBERTa2 Training Detail
+## Issue #3: ChemBERTa-2 Training Detail
 
-ChemBERTa2 experiments should be recorded as masked-language-modeling pretraining plus downstream property evaluation. The minimum run record is:
+ChemBERTa-2 experiments should be recorded as masked-language-modeling pretraining plus downstream property evaluation. The minimum run record is:
 
 - Dataset manifest: source, license, molecule count, canonicalization rules, training/validation split, and any filtering.
 - Model manifest: base checkpoint, tokenizer, max sequence length, MLM probability, seed, and full training config.
 - Training metrics: validation loss and perplexity by epoch.
-- Downstream comparison: frozen embeddings, fine-tuned ChemBERTa2, Uni-Mol, MolCLR, KRFP, and DFT baselines on the same split.
+- Downstream comparison: frozen embeddings, fine-tuned ChemBERTa-2, Uni-Mol, MolCLR, KRFP, and DFT baselines on the same split.
 - Artifact references: checkpoint checksum and storage URI, never raw weights in the repository.
 
 Config stub: `configs/pretraining/chemberta2_mlm.json`.
 
-The config now includes a comparison matrix for random-weight Uni-Mol, frozen ChemBERTa2 embeddings, fine-tuned ChemBERTa2, Uni-Mol fine-tuning, and MolCLR fine-tuning. All runs must use the same downstream rows, split seeds, metrics, and artifact policy before their numbers are compared.
+The config now includes a comparison matrix for random-weight Uni-Mol, frozen ChemBERTa-2 embeddings, fine-tuned ChemBERTa-2, Uni-Mol fine-tuning, and MolCLR fine-tuning. All runs must use the same downstream rows, split seeds, metrics, and artifact policy before their numbers are compared.
 
 Example command shape:
 
@@ -51,7 +51,7 @@ Recommended evaluation sequence:
 1. Run DFT/KRFP baselines with the same split seeds.
 2. Fine-tune Uni-Mol with `training/run.py`.
 3. Fine-tune MolCLR with `training/molclr/finetune.py`.
-4. Compare against ChemBERTa2 embeddings on identical training/test rows.
+4. Compare against ChemBERTa-2 embeddings on identical training/test rows.
 5. Report mean and standard deviation across seeds for MAE, RMSE, and R2.
 
 Required report fields:
@@ -60,7 +60,7 @@ Required report fields:
 | --- | --- |
 | target | Property name and unit. |
 | split_seed | Reproducible split identifier. |
-| feature_set | DFT, KRFP, Uni-Mol, MolCLR, ChemBERTa2, or random-weight control. |
+| feature_set | DFT, KRFP, Uni-Mol, MolCLR, ChemBERTa-2, or random-weight control. |
 | metric | MAE/RMSE/R2 with target units. |
 | artifact | Local path or external URI plus checksum for weights and outputs. |
 

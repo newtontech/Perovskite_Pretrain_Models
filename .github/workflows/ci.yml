@@ -27,3 +27,6 @@ jobs:
 
       - name: Verify reproducibility snapshot
         run: python reproducibility/audit.py --check
+
+      - name: Verify unsplit experimental dataset
+        run: python reproducibility/export_unsplit.py --check

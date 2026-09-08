@@ -1,12 +1,12 @@
-# UniMol Fine-tuning with Optuna Optimization
+# Uni-Mol Fine-tuning with Optuna Optimization
 
-This folder contains a complete workflow for fine-tuning UniMol models on the perovskite additive dataset with hyperparameter optimization using Optuna.
+This folder contains a complete workflow for fine-tuning Uni-Mol models on the perovskite additive dataset with hyperparameter optimization using Optuna.
 
 ## Overview
 
 The workflow includes:
 1. Data preparation from the Perovskite_Pretrain_Models dataset
-2. UniMol model fine-tuning using the unimol_tools library
+2. Uni-Mol model fine-tuning using the unimol_tools library
 3. Hyperparameter optimization with Optuna
 4. Model evaluation and comparison
 
@@ -21,7 +21,7 @@ The workflow includes:
 ## Requirements
 
 ```bash
-# Install UniMol tools
+# Install Uni-Mol tools
 pip install unimol-tools
 
 # Or use Docker
@@ -95,10 +95,10 @@ optuna-dashboard sqlite:///optuna_study.db
 Based on previous experiments:
 - **R² score**: 0.45 - 0.65
 - **RMSE**: 0.8 - 1.2 (for delta_PCE)
-- **Best model**: UniMol v2, 84m size, learning rate ~1e-4
+- **Best model**: Uni-Mol v2, 84m size, learning rate ~1e-4
 
 ## References
 
-1. UniMol: https://github.com/dptech-corp/Uni-Mol
-2. UniMol Tools: https://github.com/dptech-corp/unimol-tools
+1. Uni-Mol: https://github.com/dptech-corp/Uni-Mol
+2. Uni-Mol Tools: https://github.com/dptech-corp/unimol-tools
 3. Optuna: https://optuna.readthedocs.io/
