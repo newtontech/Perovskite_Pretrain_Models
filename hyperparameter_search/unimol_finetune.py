@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 """
-UniMol Fine-tuning Script for Perovskite Additive Prediction
+Uni-Mol Fine-tuning Script for Perovskite Additive Prediction
 =============================================================
 
-This script provides a command-line interface for training UniMol models
+This script provides a command-line interface for training Uni-Mol models
 on perovskite solar cell additive data.
 
 Usage:
@@ -19,7 +19,7 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 
-# Set UniMol weights directory
+# Set Uni-Mol weights directory
 os.environ['UNIMOL_WEIGHT_DIR'] = os.environ.get(
     'UNIMOL_WEIGHT_DIR',
     os.path.expanduser('~/.local/lib/python3.10/site-packages/unimol_tools/weights')
@@ -33,7 +33,7 @@ from scipy.stats import pearsonr, spearmanr
 def parse_args():
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(
-        description='Fine-tune UniMol model for perovskite additive prediction'
+        description='Fine-tune Uni-Mol model for perovskite additive prediction'
     )
 
     # Data arguments
@@ -49,7 +49,7 @@ def parse_args():
     # Model arguments
     parser.add_argument('--model_name', type=str, default='unimolv2',
                         choices=['unimolv1', 'unimolv2'],
-                        help='UniMol model version')
+                        help='Uni-Mol model version')
     parser.add_argument('--model_size', type=str, default='84m',
                         choices=['84m', '164m', '310m', '570m', '1.1B'],
                         help='Model size')
@@ -85,7 +85,7 @@ def parse_args():
 
 
 def load_data(data_path, smiles_col, target_col):
-    """Load and prepare data for UniMol."""
+    """Load and prepare data for Uni-Mol."""
     df = pd.read_csv(data_path)
 
     # Check required columns
@@ -118,7 +118,7 @@ def main():
     args = parse_args()
 
     print("=" * 60)
-    print("UniMol Fine-tuning for Perovskite Additive Prediction")
+    print("Uni-Mol Fine-tuning for Perovskite Additive Prediction")
     print("=" * 60)
     print(f"\nStarted at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 

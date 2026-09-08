@@ -1,5 +1,7 @@
 # Data and reproducibility
 
+The [unsplit experimental dataset](../data/experimental_records.csv) contains all 343 observation records before assigning training or test roles. See its [data dictionary and reconstruction method](../data/README.md).
+
 This directory makes the archived data splits and prediction records inspectable. It does not establish that every archived result corresponds to the final manuscript, and it does not provide a verified full training reproduction.
 
 ## Start here

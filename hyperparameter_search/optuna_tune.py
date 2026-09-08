@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 """
-Optuna Hyperparameter Optimization for UniMol
+Optuna Hyperparameter Optimization for Uni-Mol
 ==============================================
 
 This script performs hyperparameter optimization using Optuna to find
-the best configuration for UniMol fine-tuning on perovskite data.
+the best configuration for Uni-Mol fine-tuning on perovskite data.
 
 Usage:
     python optuna_tune.py --data_path ../baselines/datasets/split_seed_0/train_pool.csv \
@@ -21,7 +21,7 @@ from datetime import datetime
 import tempfile
 import shutil
 
-# Set UniMol weights directory
+# Set Uni-Mol weights directory
 os.environ['UNIMOL_WEIGHT_DIR'] = os.environ.get(
     'UNIMOL_WEIGHT_DIR',
     os.path.expanduser('~/.local/lib/python3.10/site-packages/unimol_tools/weights')
@@ -37,7 +37,7 @@ from optuna.pruners import MedianPruner
 def parse_args():
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(
-        description='Optuna hyperparameter optimization for UniMol'
+        description='Optuna hyperparameter optimization for Uni-Mol'
     )
 
     parser.add_argument('--data_path', type=str, required=True,
@@ -63,7 +63,7 @@ def parse_args():
 
 
 class UniMolOptimizer:
-    """Optimizer class for UniMol hyperparameter tuning."""
+    """Optimizer class for Uni-Mol hyperparameter tuning."""
 
     def __init__(self, train_df, test_df, save_dir, seed=42):
         """
@@ -202,7 +202,7 @@ def main():
     args = parse_args()
 
     print("=" * 60)
-    print("Optuna Hyperparameter Optimization for UniMol")
+    print("Optuna Hyperparameter Optimization for Uni-Mol")
     print("=" * 60)
     print(f"\nStarted at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 

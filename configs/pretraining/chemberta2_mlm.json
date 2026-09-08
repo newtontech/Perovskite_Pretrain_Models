@@ -36,13 +36,13 @@
       },
       {
         "name": "frozen_chemberta2_embeddings",
-        "training_mode": "frozen pretrained ChemBERTa2 encoder",
+        "training_mode": "frozen pretrained ChemBERTa-2 encoder",
         "downstream_protocol": "fit the same regression head and metrics as Uni-Mol/MolCLR on identical rows",
         "artifact_policy": "commit config, metric table, dataset manifest, and external artifact URI/checksum"
       },
       {
         "name": "finetuned_chemberta2_regression_head",
-        "training_mode": "ChemBERTa2 fine-tuning for downstream regression",
+        "training_mode": "ChemBERTa-2 fine-tuning for downstream regression",
         "downstream_protocol": "report MAE/RMSE/R2 per split seed with mean and standard deviation",
         "artifact_policy": "keep weights, optimizer state, and trainer logs out of git"
       },
