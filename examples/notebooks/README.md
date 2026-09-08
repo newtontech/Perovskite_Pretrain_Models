@@ -51,8 +51,8 @@ benchmarks = leave_one_out_benchmark(
 ## Next Steps
 
 For full model training:
-- Use `train/run.py` for Uni-Mol fine-tuning
-- Use `train/train_molclr/finetune.py` for MolCLR
+- Use `training/run.py` for Uni-Mol fine-tuning
+- Use `training/molclr/finetune.py` for MolCLR
 - Run baseline comparisons in `baselines/baseline_search_get.py`
 
 ## Requirements

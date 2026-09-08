@@ -1,0 +1,121 @@
+source_file,split,target,n,rmse,mae,r2,status
+baselines/predictions/ElasticNet_seed_0.csv,test_cleaned,TARGET (residual),39,0.6200327240075078,0.5086300799831306,0.04708059987532898,historical_prediction_recomputation
+baselines/predictions/ElasticNet_seed_0.csv,train,TARGET (residual),291,0.6282115579270997,0.5102605498050292,0.228507451134085,historical_prediction_recomputation
+baselines/predictions/ElasticNet_seed_0.csv,val,TARGET (residual),59,0.6124110336895611,0.47164449386599316,0.2496748060219538,historical_prediction_recomputation
+baselines/predictions/ElasticNet_seed_1.csv,test_cleaned,TARGET (residual),47,0.5591616420200255,0.4582640510722181,0.28615780841542915,historical_prediction_recomputation
+baselines/predictions/ElasticNet_seed_1.csv,train,TARGET (residual),291,0.6411718708637005,0.5201940547392404,0.19856729404349294,historical_prediction_recomputation
+baselines/predictions/ElasticNet_seed_1.csv,val,TARGET (residual),59,0.6197712810496401,0.49885242003442926,0.26221367386339456,historical_prediction_recomputation
+baselines/predictions/ElasticNet_seed_2.csv,test_cleaned,TARGET (residual),40,0.7332094215281979,0.592696497283508,0.11474238521431745,historical_prediction_recomputation
+baselines/predictions/ElasticNet_seed_2.csv,train,TARGET (residual),291,0.5995255508056719,0.48582814035486327,0.24762630331220925,historical_prediction_recomputation
+baselines/predictions/ElasticNet_seed_2.csv,val,TARGET (residual),59,0.5787281566894994,0.46590596781544547,0.17112749897844093,historical_prediction_recomputation
+baselines/predictions/ElasticNet_seed_3.csv,test_cleaned,TARGET (residual),40,0.7379468866264601,0.624273335370193,0.1987577235081568,historical_prediction_recomputation
+baselines/predictions/ElasticNet_seed_3.csv,train,TARGET (residual),291,0.6260655594990187,0.5071764652364513,0.17201509419998506,historical_prediction_recomputation
+baselines/predictions/ElasticNet_seed_3.csv,val,TARGET (residual),59,0.5497220442031359,0.4656969627727912,0.11637871922883125,historical_prediction_recomputation
+baselines/predictions/ElasticNet_seed_4.csv,test_cleaned,TARGET (residual),43,0.6096942766414343,0.4980089302517994,0.1559337541773117,historical_prediction_recomputation
+baselines/predictions/ElasticNet_seed_4.csv,train,TARGET (residual),291,0.6271176866103805,0.5064686159712375,0.24202975678910066,historical_prediction_recomputation
+baselines/predictions/ElasticNet_seed_4.csv,val,TARGET (residual),59,0.5868613702990657,0.48927792592267433,0.2283451416072435,historical_prediction_recomputation
+baselines/predictions/Random Forest_seed_0.csv,test_cleaned,TARGET (residual),39,0.5788797881171865,0.46151007521378373,0.16937744745186312,historical_prediction_recomputation
+baselines/predictions/Random Forest_seed_0.csv,train,TARGET (residual),291,0.4716382204397246,0.37387810528913995,0.5651516010981673,historical_prediction_recomputation
+baselines/predictions/Random Forest_seed_0.csv,val,TARGET (residual),59,0.4662565161215555,0.3517257171481277,0.5650760292447221,historical_prediction_recomputation
+baselines/predictions/Random Forest_seed_1.csv,test_cleaned,TARGET (residual),47,0.5433913724910546,0.4482909858943928,0.32585557438577994,historical_prediction_recomputation
+baselines/predictions/Random Forest_seed_1.csv,train,TARGET (residual),291,0.5148467293932983,0.41526016464152404,0.4832576496999613,historical_prediction_recomputation
+baselines/predictions/Random Forest_seed_1.csv,val,TARGET (residual),59,0.46146028217323143,0.36001865356121726,0.5909877075997383,historical_prediction_recomputation
+baselines/predictions/Random Forest_seed_2.csv,test_cleaned,TARGET (residual),40,0.6870184807969059,0.5441248852140712,0.22276842253739448,historical_prediction_recomputation
+baselines/predictions/Random Forest_seed_2.csv,train,TARGET (residual),291,0.39204123428731125,0.3113237682156318,0.67827729895764,historical_prediction_recomputation
+baselines/predictions/Random Forest_seed_2.csv,val,TARGET (residual),59,0.3568075228254051,0.27900094560683536,0.6849303929684685,historical_prediction_recomputation
+baselines/predictions/Random Forest_seed_3.csv,test_cleaned,TARGET (residual),40,0.697752334031635,0.5875051196472285,0.2836648826087499,historical_prediction_recomputation
+baselines/predictions/Random Forest_seed_3.csv,train,TARGET (residual),291,0.5369734160447736,0.4292919294347209,0.39090033038322514,historical_prediction_recomputation
+baselines/predictions/Random Forest_seed_3.csv,val,TARGET (residual),59,0.4823955113964266,0.39186984006669456,0.3195654187691319,historical_prediction_recomputation
+baselines/predictions/Random Forest_seed_4.csv,test_cleaned,TARGET (residual),43,0.6003930091195989,0.49406449260368035,0.18149082817071982,historical_prediction_recomputation
+baselines/predictions/Random Forest_seed_4.csv,train,TARGET (residual),291,0.40500746949404964,0.3182481710659814,0.6838595091031083,historical_prediction_recomputation
+baselines/predictions/Random Forest_seed_4.csv,val,TARGET (residual),59,0.3948272232686102,0.3400469598458888,0.6507260246192403,historical_prediction_recomputation
+baselines/predictions/SVR_seed_0.csv,test_cleaned,TARGET (residual),39,0.6169610492828382,0.5110880926881762,0.056498838372225246,historical_prediction_recomputation
+baselines/predictions/SVR_seed_0.csv,train,TARGET (residual),291,0.6224125469537398,0.5015577071706884,0.2426849825062063,historical_prediction_recomputation
+baselines/predictions/SVR_seed_0.csv,val,TARGET (residual),59,0.6089560036345675,0.46875077631237017,0.25811712078476656,historical_prediction_recomputation
+baselines/predictions/SVR_seed_1.csv,test_cleaned,TARGET (residual),47,0.5792945615285965,0.4587559158565902,0.23382783002604468,historical_prediction_recomputation
+baselines/predictions/SVR_seed_1.csv,train,TARGET (residual),291,0.5998320614238116,0.457864782412894,0.2985810570311671,historical_prediction_recomputation
+baselines/predictions/SVR_seed_1.csv,val,TARGET (residual),59,0.5702951421557786,0.42841131700161267,0.3753064091023053,historical_prediction_recomputation
+baselines/predictions/SVR_seed_2.csv,test_cleaned,TARGET (residual),40,0.7025052118810354,0.5569913782111691,0.18733286168561192,historical_prediction_recomputation
+baselines/predictions/SVR_seed_2.csv,train,TARGET (residual),291,0.5922356323187217,0.47882023338378327,0.26581200733907717,historical_prediction_recomputation
+baselines/predictions/SVR_seed_2.csv,val,TARGET (residual),59,0.5810574673610466,0.4753221749784241,0.16444184886971935,historical_prediction_recomputation
+baselines/predictions/SVR_seed_3.csv,test_cleaned,TARGET (residual),40,0.7147961237983189,0.6199453306966409,0.24824205949206624,historical_prediction_recomputation
+baselines/predictions/SVR_seed_3.csv,train,TARGET (residual),291,0.6029073809290328,0.47598338831536124,0.2321365532697205,historical_prediction_recomputation
+baselines/predictions/SVR_seed_3.csv,val,TARGET (residual),59,0.5426800376894134,0.42647483302269823,0.13887231067266514,historical_prediction_recomputation
+baselines/predictions/SVR_seed_4.csv,test_cleaned,TARGET (residual),43,0.6011426596362708,0.5093005340900318,0.17944557154044682,historical_prediction_recomputation
+baselines/predictions/SVR_seed_4.csv,train,TARGET (residual),291,0.596611841852549,0.48234218663399775,0.3139783907931385,historical_prediction_recomputation
+baselines/predictions/SVR_seed_4.csv,val,TARGET (residual),59,0.568471065713164,0.4798514373630185,0.27594963379313975,historical_prediction_recomputation
+baselines/predictions/XGBoost_seed_0.csv,test_cleaned,TARGET (residual),39,0.5789505020322292,0.4539047013530079,0.1691745032090496,historical_prediction_recomputation
+baselines/predictions/XGBoost_seed_0.csv,train,TARGET (residual),291,0.42533832655163006,0.3299695243906256,0.6463375693826712,historical_prediction_recomputation
+baselines/predictions/XGBoost_seed_0.csv,val,TARGET (residual),59,0.4207780900637532,0.31367093914649513,0.6457827135071419,historical_prediction_recomputation
+baselines/predictions/XGBoost_seed_1.csv,test_cleaned,TARGET (residual),47,0.5445489003865229,0.4368441911888758,0.3229804013308456,historical_prediction_recomputation
+baselines/predictions/XGBoost_seed_1.csv,train,TARGET (residual),291,0.46399313477268717,0.3577416247294715,0.5802977964488973,historical_prediction_recomputation
+baselines/predictions/XGBoost_seed_1.csv,val,TARGET (residual),59,0.4380540564578799,0.329479661886662,0.6314273386986589,historical_prediction_recomputation
+baselines/predictions/XGBoost_seed_2.csv,test_cleaned,TARGET (residual),40,0.707011240916874,0.5596506882388239,0.17687416103257736,historical_prediction_recomputation
+baselines/predictions/XGBoost_seed_2.csv,train,TARGET (residual),291,0.26768597496820673,0.20521367746583274,0.8500075339208153,historical_prediction_recomputation
+baselines/predictions/XGBoost_seed_2.csv,val,TARGET (residual),59,0.20944117430177617,0.16747118751379383,0.8914417996556975,historical_prediction_recomputation
+baselines/predictions/XGBoost_seed_3.csv,test_cleaned,TARGET (residual),40,0.7010427459924238,0.5840870238410939,0.276892865948677,historical_prediction_recomputation
+baselines/predictions/XGBoost_seed_3.csv,train,TARGET (residual),291,0.438347971653935,0.3478219872827038,0.5940983700032674,historical_prediction_recomputation
+baselines/predictions/XGBoost_seed_3.csv,val,TARGET (residual),59,0.38983353202753973,0.31822574055160563,0.5556366352082914,historical_prediction_recomputation
+baselines/predictions/XGBoost_seed_4.csv,test_cleaned,TARGET (residual),43,0.5986258769352584,0.48787548722216556,0.18630196110949404,historical_prediction_recomputation
+baselines/predictions/XGBoost_seed_4.csv,train,TARGET (residual),291,0.4929129596168082,0.38846897322040064,0.5317319455465167,historical_prediction_recomputation
+baselines/predictions/XGBoost_seed_4.csv,val,TARGET (residual),59,0.49082668471325996,0.42180717030998677,0.4602304512875057,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/ElasticNet_seed_0.csv,test_cleaned,TARGET (residual),39,0.6011958282720551,0.49854267536449515,0.10410138982905226,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/ElasticNet_seed_0.csv,train,TARGET (residual),291,0.5551720529905066,0.4493208124489671,0.39747498382668744,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/ElasticNet_seed_0.csv,val,TARGET (residual),59,0.5441775595133792,0.43266827144913605,0.4075594546599036,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/ElasticNet_seed_1.csv,test_cleaned,TARGET (residual),47,0.5857133241516814,0.46258748256646387,0.21675491612227737,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/ElasticNet_seed_1.csv,train,TARGET (residual),291,0.5584694633980257,0.4519149875208391,0.3919812077963857,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/ElasticNet_seed_1.csv,val,TARGET (residual),59,0.5492297964059324,0.47240505014783923,0.4206034748172671,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/ElasticNet_seed_2.csv,test_cleaned,TARGET (residual),40,0.7535260454009679,0.6234917336242717,0.06500318018730589,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/ElasticNet_seed_2.csv,train,TARGET (residual),291,0.5309257320102666,0.4339515005535824,0.40995415088620357,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/ElasticNet_seed_2.csv,val,TARGET (residual),59,0.48854244716773293,0.402279696049652,0.4093324482136933,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/ElasticNet_seed_3.csv,test_cleaned,TARGET (residual),40,0.7756589830851155,0.6367111667115133,0.11477167937592159,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/ElasticNet_seed_3.csv,train,TARGET (residual),291,0.612139062775581,0.5030409238399162,0.2084415648791732,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/ElasticNet_seed_3.csv,val,TARGET (residual),59,0.5469182329538663,0.4485793942388193,0.12536940517261363,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/ElasticNet_seed_4.csv,test_cleaned,TARGET (residual),43,0.620729626534163,0.4974979464601519,0.12510235998229313,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/ElasticNet_seed_4.csv,train,TARGET (residual),291,0.492078456563906,0.3924063361491241,0.5333161616848296,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/ElasticNet_seed_4.csv,val,TARGET (residual),59,0.4715516654532803,0.3921347366850261,0.5017920948360165,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/Random Forest_seed_0.csv,test_cleaned,TARGET (residual),39,0.6207119157072389,0.4964113408134655,0.044991776477048995,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/Random Forest_seed_0.csv,train,TARGET (residual),291,0.4984715673518182,0.39725382796170855,0.5142635729194415,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/Random Forest_seed_0.csv,val,TARGET (residual),59,0.4961346304219335,0.38041789328322645,0.5075494805614309,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/Random Forest_seed_1.csv,test_cleaned,TARGET (residual),47,0.6145335769014547,0.46630286490327766,0.1377787860897156,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/Random Forest_seed_1.csv,train,TARGET (residual),291,0.5798421535390726,0.459987383210805,0.34455280524980403,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/Random Forest_seed_1.csv,val,TARGET (residual),59,0.5663337447300678,0.472444360612016,0.3839547900246634,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/Random Forest_seed_2.csv,test_cleaned,TARGET (residual),40,0.7662959366410967,0.6201323805520689,0.033044155480563275,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/Random Forest_seed_2.csv,train,TARGET (residual),291,0.44864087612007947,0.3549999117911602,0.5786762988523919,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/Random Forest_seed_2.csv,val,TARGET (residual),59,0.41304301471033583,0.3321026286465115,0.5777894604098063,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/Random Forest_seed_3.csv,test_cleaned,TARGET (residual),40,0.7648028140329923,0.6354615956791232,0.13937768826466213,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/Random Forest_seed_3.csv,train,TARGET (residual),291,0.5787398617659997,0.4679980908282804,0.2924623005301209,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/Random Forest_seed_3.csv,val,TARGET (residual),59,0.5076793919345308,0.41293677316266114,0.2463686949931959,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/Random Forest_seed_4.csv,test_cleaned,TARGET (residual),43,0.5977242725453156,0.48111849540240653,0.18875117448555656,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/Random Forest_seed_4.csv,train,TARGET (residual),291,0.4577321325170989,0.36223561720866587,0.5961901959726119,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/Random Forest_seed_4.csv,val,TARGET (residual),59,0.4399510190213044,0.3640609388953068,0.5663286778010282,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/SVR_seed_0.csv,test_cleaned,TARGET (residual),39,0.6229091948379271,0.5111437200274215,0.03821847723996563,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/SVR_seed_0.csv,train,TARGET (residual),291,0.4959428647237914,0.3216332753834534,0.519179269516445,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/SVR_seed_0.csv,val,TARGET (residual),59,0.5178240069140861,0.31301973570097563,0.4635516946321635,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/SVR_seed_1.csv,test_cleaned,TARGET (residual),47,0.6104917085604207,0.49720715126961296,0.14908337271083705,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/SVR_seed_1.csv,train,TARGET (residual),291,0.5144740827500516,0.3381534364607164,0.4840054163764005,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/SVR_seed_1.csv,val,TARGET (residual),59,0.5086427931754397,0.3656797531604161,0.50307196738547,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/SVR_seed_2.csv,test_cleaned,TARGET (residual),40,0.7584112735686278,0.629763895140804,0.052840417399511175,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/SVR_seed_2.csv,train,TARGET (residual),291,0.4769719916917142,0.3138757742439781,0.5237840188794345,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/SVR_seed_2.csv,val,TARGET (residual),59,0.43325854226050176,0.28489131616870483,0.5354496678638228,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/SVR_seed_3.csv,test_cleaned,TARGET (residual),40,0.7478572835480091,0.6235913942887579,0.17709234562605947,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/SVR_seed_3.csv,train,TARGET (residual),291,0.5120992983666676,0.35041905099794046,0.44602373951303886,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/SVR_seed_3.csv,val,TARGET (residual),59,0.45861458448531944,0.30737164823931507,0.38499933627523397,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/SVR_seed_4.csv,test_cleaned,TARGET (residual),43,0.6222291002358026,0.5068074514667261,0.12087033855447249,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/SVR_seed_4.csv,train,TARGET (residual),291,0.42406333086313985,0.3310189656043604,0.6534104230309943,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/SVR_seed_4.csv,val,TARGET (residual),59,0.4054414222937807,0.326702876190079,0.6316944344666802,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/XGBoost_seed_0.csv,test_cleaned,TARGET (residual),39,0.5911740703620241,0.4802674448618002,0.13372117180473264,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/XGBoost_seed_0.csv,train,TARGET (residual),291,0.5282431674096423,0.4100720994490447,0.45450890155305423,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/XGBoost_seed_0.csv,val,TARGET (residual),59,0.5161167513668343,0.384178775331262,0.4670831823812053,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/XGBoost_seed_1.csv,test_cleaned,TARGET (residual),47,0.5992632196560516,0.444023267375738,0.1800965444681326,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/XGBoost_seed_1.csv,train,TARGET (residual),291,0.5447193408421004,0.4215738427371071,0.42155278951560804,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/XGBoost_seed_1.csv,val,TARGET (residual),59,0.5389853145259482,0.42829723541389714,0.4420162253178326,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/XGBoost_seed_2.csv,test_cleaned,TARGET (residual),40,0.7791648528535894,0.6134782157991279,0.0002939852656773656,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/XGBoost_seed_2.csv,train,TARGET (residual),291,0.505602902134003,0.3926210188165552,0.4648970727952588,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/XGBoost_seed_2.csv,val,TARGET (residual),59,0.49233388923331317,0.38004339195346415,0.40012885981159185,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/XGBoost_seed_3.csv,test_cleaned,TARGET (residual),40,0.7534580201756782,0.6417516845188771,0.16472060778024267,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/XGBoost_seed_3.csv,train,TARGET (residual),291,0.5102393727163242,0.3949961904828126,0.4500404743724715,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/XGBoost_seed_3.csv,val,TARGET (residual),59,0.43599740188573366,0.3236815306817334,0.4441627300197325,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/XGBoost_seed_4.csv,test_cleaned,TARGET (residual),43,0.5601159134015276,0.47195937796104054,0.2876259023435036,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/XGBoost_seed_4.csv,train,TARGET (residual),291,0.5271466469237044,0.40725415012300925,0.464429121585184,historical_prediction_recomputation
+baselines/krfp/predictions_krfp/XGBoost_seed_4.csv,val,TARGET (residual),59,0.47290619496068426,0.38438200065104816,0.49892578519885855,historical_prediction_recomputation

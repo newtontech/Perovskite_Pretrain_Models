@@ -38,12 +38,16 @@ pip install -r requirements.txt
 
 ### Training Your First Model
 
+Configure the pretrained weight directory and available CUDA device in `training/run.py` before training.
+
 ```bash
-cd train
+cd training
 python run.py
 ```
 
 ## Reproducibility Checklist
+
+Data records and stored splits are available in the [reader workbook](reproducibility/ML_reproducibility.xlsx), with [machine-readable tables and audit commands](reproducibility/README.md). See [Code Ocean preparation](docs/code_ocean.md) for capsule access and submission steps.
 
 Use this as the public path for reproducing results from the repository:
 
@@ -60,7 +64,7 @@ conda create -n perovskite-pretrain python=3.11 -y
 conda activate perovskite-pretrain
 pip install -r requirements.txt
 
-cd train
+cd training
 python run.py
 ```
 
@@ -82,7 +86,7 @@ The checks compile Python sources without importing heavy modules and prevent ne
 - Public datasets: cite the paper, database, DOI, or upstream repository in the experiment notes.
 - Private datasets: store outside this repository and keep only schema, feature definitions, and anonymized examples here.
 - Pretrained weights: store in release assets, object storage, or an institutional data repository before linking from the README.
-- Generated outputs: keep final plots and metrics under a dated run folder; copy only publication-ready figures into `visualize/` or docs.
+- Generated outputs: keep final plots and metrics under a dated run folder; copy only publication-ready figures into `visualization/` or docs.
 
 ### Pretraining Workflow Stubs
 
@@ -99,20 +103,20 @@ Open pretraining requests are tracked as lightweight, reproducible workflow stub
 
 ```
 Perovskite_Pretrain_Models/
-├── train/                          # Main training scripts
+├── training/                       # Main training scripts
 │   ├── run.py                      # Uni-Mol training entry point
 │   ├── get_features.py             # Feature extraction
 │   ├── get_heatmap.py              # Attention heatmap generation
-│   └── train_molclr/               # MolCLR fine-tuning
+│   └── molclr/                   # MolCLR fine-tuning
 ├── baselines/                      # Baseline methods
 │   ├── baseline_search_get.py      # Hyperparameter search
 │   ├── feature_selection_cluster.py
-│   └── data_krfp/                  # KRFP feature generation
-├── visualize/                      # Visualization tools
+│   └── krfp/                     # KRFP feature generation
+├── visualization/                  # Visualization tools
 │   ├── draw_umap.py                # UMAP visualization
 │   ├── draw_heatmap.py             # Heatmap rendering
 │   └── draw_correlation.py         # Feature correlation
-└── rdkit_dft_features_generation/  # DFT feature extraction
+└── feature_generation/             # DFT feature extraction
 ```
 
 ---
@@ -125,7 +129,7 @@ Perovskite_Pretrain_Models/
 State-of-the-art 3D molecular representation learning pretrained on large-scale molecular datasets.
 
 ```bash
-cd train
+cd training
 python run.py
 ```
 
@@ -133,7 +137,7 @@ python run.py
 Contrastive learning framework for molecular representations.
 
 ```bash
-cd train/train_molclr
+cd training/molclr
 python finetune.py
 python collect_data.py
 # View results in draw.ipynb
@@ -145,9 +149,9 @@ python collect_data.py
 Visualize high-dimensional molecular features in 2D space.
 
 ```bash
-cd train
+cd training
 python get_features.py          # Save features
-cd ../visualize
+cd ../visualization
 python draw_umap.py             # Basic UMAP
 python draw_umap_with_additional_points.py  # Highlight specific molecules
 ```
@@ -156,9 +160,9 @@ python draw_umap_with_additional_points.py  # Highlight specific molecules
 Understand which atoms the model focuses on for predictions.
 
 ```bash
-cd train
+cd training
 python get_heatmap.py           # Generate heatmap data
-cd ../visualize
+cd ../visualization
 python draw_heatmap.py          # Render visualization
 ```
 
@@ -187,10 +191,9 @@ python draw_best_results.py
 Kernel-based molecular fingerprints with ML baselines.
 
 ```bash
-cd baselines/data_krfp
+cd baselines/krfp
 python generate_krfp.py         # Generate KRFP features
 
-cd ..
 python baseline_search_get.py   # Train models
 python draw_best_results.py     # Visualize
 ```

@@ -7,7 +7,7 @@ This example demonstrates the complete property prediction workflow:
 4. Evaluate performance and visualize results
 
 Note: This is a minimal runnable example. For full benchmarking results,
-see the comprehensive evaluation pipeline in train/run.py
+see the comprehensive evaluation pipeline in training/run.py
 """
 
 import sys
@@ -194,8 +194,8 @@ def main():
     print("Demo completed successfully!")
     print("\nNext Steps:")
     print("1. Replace synthetic data with real perovskite datasets")
-    print("2. Train full models using train/run.py for Uni-Mol")
-    print("3. Use train/train_molclr/finetune.py for MolCLR")
+    print("2. Train full models using training/run.py for Uni-Mol")
+    print("3. Use training/molclr/finetune.py for MolCLR")
     print("4. Run baseline comparisons in baselines/baseline_search_get.py")
 
 

@@ -1,0 +1,16 @@
+seed,role,n_rows,n_unique_raw_smiles,n_rows_overlapping_train_pool,n_raw_smiles_overlapping_train_pool,cleaned_equals_raw_filter
+0,train_pool,291,267,291,267,true
+0,test_raw,52,48,13,12,true
+0,test_cleaned,39,36,0,0,true
+1,train_pool,291,257,291,257,true
+1,test_raw,52,50,5,4,true
+1,test_cleaned,47,46,0,0,true
+2,train_pool,291,263,291,263,true
+2,test_raw,52,52,12,12,true
+2,test_cleaned,40,40,0,0,true
+3,train_pool,291,264,291,264,true
+3,test_raw,52,49,12,10,true
+3,test_cleaned,40,39,0,0,true
+4,train_pool,291,261,291,261,true
+4,test_raw,52,51,9,9,true
+4,test_cleaned,43,42,0,0,true

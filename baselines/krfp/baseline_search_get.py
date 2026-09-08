@@ -11,9 +11,6 @@ from predict_and_save import save_predictions_with_true
 import warnings
 warnings.filterwarnings('ignore')
 
-# Feature list
-feature_list = ['LUMO', 'Heteroatoms', 'Gap', 'Max_ESP', 'H_acceptor', 'TPSA', 'MW', 'F', 'Aromatic_rings',
-                'N', 'HOMO', 'RB', 'H', 'QED', 'IPC', 'Saturated_rings', 'Dipole']
 
 # Define models once outside the loop
 models_params = {
@@ -70,17 +67,20 @@ for seed in range(5):
     print(f"🔁 Processing Seed {seed}")
     print(f"{'='*60}")
 
-    test_path = f'datasets/split_seed_{seed}/test.csv'
-    train_path = f'datasets/split_seed_{seed}/train_pool.csv'
+    test_path = f'../datasets/split_seed_{seed}/test.csv'
+    train_path = f'../datasets/split_seed_{seed}/train_pool.csv'
+
+    test_feature_path = f'../datasets/split_seed_{seed}/test_krfp.npy'
+    train_feature_path = f'../datasets/split_seed_{seed}/train_pool_krfp.npy'
 
     # Read data
     df_train = pd.read_csv(train_path)
     df_test = pd.read_csv(test_path)
 
     # Convert to NumPy
-    X_train = np.array(df_train[feature_list])
+    X_train = np.load(train_feature_path)
     y_train = np.array(df_train['TARGET'])
-    X_test = np.array(df_test[feature_list])
+    X_test = np.load(test_feature_path)
     y_test = np.array(df_test['TARGET'])
     smiles_train = df_train['SMILES'].values
     smiles_test = df_test['SMILES'].values
@@ -123,7 +123,7 @@ for seed in range(5):
             refit=True,
             n_jobs=-1,
             random_state=42,
-            verbose=20
+            verbose=2
         )
         search.fit(X_train_scaled, y_train)
 
@@ -152,7 +152,8 @@ for seed in range(5):
             y_test=y_test,
             y_train_pred=y_train_pred,
             y_val_pred=y_val_pred,
-            y_test_pred=y_test_pred
+            y_test_pred=y_test_pred,
+            output_dir='predictions_krfp'
         )
 
 # Summarize mean performance across five seeds for each model
