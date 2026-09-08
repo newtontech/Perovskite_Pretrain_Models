@@ -24,3 +24,6 @@ jobs:
 
       - name: Run smoke tests
         run: pytest -q
+
+      - name: Verify reproducibility snapshot
+        run: python reproducibility/audit.py --check

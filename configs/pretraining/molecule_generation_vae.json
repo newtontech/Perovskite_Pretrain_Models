@@ -2,7 +2,7 @@
   "workflow": "perovskite_molecule_generation",
   "issue": 6,
   "data": {
-    "seed_molecules_file": "train/10_mol.csv",
+    "seed_molecules_file": "training/10_mol.csv",
     "smiles_column": "SMILES",
     "candidate_output_schema": [
       "smiles",

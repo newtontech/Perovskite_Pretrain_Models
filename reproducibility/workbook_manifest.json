@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "workbook": "ML_reproducibility.xlsx",
+  "source_hash_normalization": "UTF-8 BOM removed, CRLF/CR normalized to LF; no other transformation",
+  "sheets": [
+    {
+      "sheet": "Samples",
+      "source": "generated/samples.csv",
+      "rows": 3379,
+      "columns": 47,
+      "sha256_normalized": "61abacbee202ee17cd8b451bde56a70c3ee933e6f75982dc5b3d4c53b74cb9cf"
+    },
+    {
+      "sheet": "Outer splits",
+      "source": "generated/split_summary.csv",
+      "rows": 15,
+      "columns": 7,
+      "sha256_normalized": "32036c09661547fdf23808c07828ef4a17cb0501d9ac619993b5739f2f02a363"
+    },
+    {
+      "sheet": "Inner folds",
+      "source": "generated/fold_membership.csv",
+      "rows": 14550,
+      "columns": 7,
+      "sha256_normalized": "08b73f581c7c21aa92dffe0959645bcb1ff24ddf34d2722745de339b960ab64d"
+    },
+    {
+      "sheet": "Fold summary",
+      "source": "generated/fold_summary.csv",
+      "rows": 50,
+      "columns": 5,
+      "sha256_normalized": "4e4343afc05667be76ad2a2b94687d9001a380ea88fb0d7c3003063f910a1537"
+    },
+    {
+      "sheet": "Historical metrics",
+      "source": "generated/historical_metrics.csv",
+      "rows": 120,
+      "columns": 8,
+      "sha256_normalized": "2f6f9bbcd6728f455a85414e5a3affdcddff60bae2c5ef1fecb0a5ced6c1385a"
+    },
+    {
+      "sheet": "File manifest",
+      "source": "generated/file_manifest.csv",
+      "rows": 65,
+      "columns": 5,
+      "sha256_normalized": "eeafcf26f16495f06fda07e1c6e24c260109156eb005cc7c8a9a9107496384b9"
+    }
+  ],
+  "sha256": "96bb491699dd321e35ad8e0d977cceddacf52ae7d88e6e8299aefb40ae4ec43d"
+}

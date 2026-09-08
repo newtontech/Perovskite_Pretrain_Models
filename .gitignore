@@ -11,3 +11,4 @@ logs/
 checkpoints/
 *.log
 runs/
+results/

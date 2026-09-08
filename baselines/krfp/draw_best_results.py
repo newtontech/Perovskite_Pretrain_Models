@@ -46,7 +46,7 @@ alpha = 0.3  # Optional fill or secondary-element opacity
 # ==============================
 
 
-def plot_train_predictions_best_seed(model_name, prediction_dir='predictions', sets=['train', 'val', 'test_cleaned']):
+def plot_train_predictions_best_seed(model_name, prediction_dir='predictions_krfp', sets=['train', 'val', 'test_cleaned']):
     """
     For the specified model (e.g. SVR or Random Forest), select the seed with the highest test R-squared.
     Plot predicted versus observed values for each requested split with a regression line and metrics.
@@ -146,7 +146,7 @@ def plot_train_predictions_best_seed(model_name, prediction_dir='predictions', s
         plt.tight_layout()
 
         # Save the figure at 300 dpi
-        base_dir = 'figures_dft'
+        base_dir = '../figures_krfp'
         output_fig = f'{base_dir}/{model_name}_{setname}_scatter_best_seed.png'
         plt.savefig(output_fig, dpi=None, bbox_inches='tight')  # DPI is configured in rcParams
         print(f"📈 {setname.capitalize()} scatter plot saved as '{output_fig}'")

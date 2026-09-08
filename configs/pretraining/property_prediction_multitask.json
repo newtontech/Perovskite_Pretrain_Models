@@ -2,8 +2,8 @@
   "workflow": "perovskite_property_prediction",
   "issue": 5,
   "data": {
-    "train_file": "train/train.csv",
-    "test_file": "train/test.csv",
+    "train_file": "training/train_pool.csv",
+    "test_file": "training/test_raw.csv",
     "smiles_column": "SMILES",
     "task_type": "multitask_regression",
     "targets": [
